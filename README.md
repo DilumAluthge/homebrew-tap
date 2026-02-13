@@ -1,17 +1,10 @@
-# DilumAluthge Tap
+# `dilumaluthge/tap` Homebrew Tap
 
-## How do I install these formulae?
+Add the tap with `brew tap dilumaluthge/tap`
 
-`brew install dilumaluthge/tap/<formula>`
+## Available formulae
 
-Or `brew tap dilumaluthge/tap` and then `brew install <formula>`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "dilumaluthge/tap"
-brew "<formula>"
-```
+- [Pijul](https://pijul.org/): `brew install dilumaluthge/tap/pijul`
 
 ## Documentation
 
