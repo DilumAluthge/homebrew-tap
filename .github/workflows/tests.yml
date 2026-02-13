@@ -44,9 +44,14 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
+      - name: List bottles (if any)
+        run: ls -- *.bottle.*
+        continue-on-error: true # don't error if there are no bottles
+
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
         uses: actions/upload-artifact@v6
         with:
           name: bottles_${{ matrix.os }}
           path: '*.bottle.*'
+          if-no-files-found: warn # don't error if there are no bottles
