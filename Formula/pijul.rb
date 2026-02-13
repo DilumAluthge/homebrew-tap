@@ -12,6 +12,14 @@ class Pijul < Formula
   sha256 "8a4fc27aa81ee061310d57fce2df9cc45f3149ddb00bdfab2b816beb0359b13d"
   # revision 1
 
+  bottle do
+    root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/pijul-1.0.0-beta.11"
+    sha256 cellar: :any,                 arm64_tahoe:   "9e6d1fc4772ef4ae7cd384c647fb086db91945938f1ec6613f2bf8f56765a394"
+    sha256 cellar: :any,                 arm64_sequoia: "7fc6c03380fb292b544125023a037c393812e0d068d59215bacccca5733a102a"
+    sha256 cellar: :any,                 arm64_sonoma:  "d2d1883e76758ceef62e956b6bd5035a9a29f28937392a26d1c270ee2e93be42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a59368f736c3f22094b9f221d81649dc3f83bdf6730511241c7871dc00cc96"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libsodium"
