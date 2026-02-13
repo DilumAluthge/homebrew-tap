@@ -46,7 +46,7 @@ jobs:
 
       - name: List bottles (if any)
         run: ls -- *.bottle.*
-        continue-on-error: false # don't error if there are no bottles
+        continue-on-error: true # don't error if there are no bottles
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
