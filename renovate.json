@@ -6,5 +6,6 @@
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     ":separatePatchReleases"
-  ]
+  ],
+  "rebaseWhen": "conflicted"
 }
