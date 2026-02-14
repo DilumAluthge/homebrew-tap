@@ -5,6 +5,7 @@ Add the tap with `brew tap dilumaluthge/tap`
 ## Available formulae
 
 - [Pijul](https://pijul.org/): `brew install dilumaluthge/tap/pijul`
+- [Platypus](https://sveinbjorn.org/platypus): `brew install dilumaluthge/tap/platypus`
 
 ## Documentation
 
