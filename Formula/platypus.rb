@@ -15,13 +15,22 @@ class Platypus < Formula
   depends_on :macos
 
   def install
-    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
-               "-project", "Platypus.xcodeproj",
-               "-target", "platypus",
-               "-target", "ScriptExec",
-               "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO",
-               "clean",
-               "install"
+    # Some debugging:
+    puts Dir.pwd
+    system "ls -la"
+
+    system "make", "build_unsigned"
+    # xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
+    #            "-project", "Platypus.xcodeproj",
+    #            "-target", "platypus",
+    #            "-target", "ScriptExec",
+    #            "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO",
+    #            "clean",
+    #            "install"
+
+    # Some debugging:
+    puts Dir.pwd
+    system "ls -la"
 
     man1.install "CLT/man/platypus.1"
     bin.install "dst/platypus_clt" => "platypus"
