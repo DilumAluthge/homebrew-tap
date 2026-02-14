@@ -8,7 +8,7 @@ class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
   url "https://github.com/sveinbjornt/Platypus/releases/download/v5.5.0/platypus5.5.0.src.zip"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "5f1239657646acb761b6645b48735d0bf7ad5437f547f539135643975ab0278a"
   license "BSD-3-Clause"
 
   depends_on xcode: ["8.0", :build]
