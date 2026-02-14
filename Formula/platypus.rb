@@ -43,5 +43,4 @@ class Platypus < Formula
   test do
     system bin/"platypus", "--version"
   end
-
-end # class
+end
