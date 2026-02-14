@@ -17,7 +17,7 @@ class Platypus < Formula
   def install
     # Some debugging:
     puts Dir.pwd
-    system "ls -la"
+    system "ls", "-la"
 
     system "make", "build_unsigned"
     # xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
@@ -30,7 +30,7 @@ class Platypus < Formula
 
     # Some debugging:
     puts Dir.pwd
-    system "ls -la"
+    system "ls", "-la"
 
     man1.install "CLT/man/platypus.1"
     bin.install "dst/platypus_clt" => "platypus"
