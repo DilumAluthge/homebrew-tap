@@ -4,7 +4,7 @@ Add the tap with `brew tap dilumaluthge/tap`
 
 ## Available formulae
 
-- [Pijul](https://pijul.org/): `brew install dilumaluthge/tap/pijul`
+- [Pijul](https://pijul.org/) ([formula](./Formula/pijul.rb)): `brew install dilumaluthge/tap/pijul`
 
 ## Documentation
 
