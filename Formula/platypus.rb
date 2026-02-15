@@ -13,6 +13,13 @@ class Platypus < Formula
   license "BSD-3-Clause"
   # revision 1
 
+  bottle do
+    root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/platypus-5.5.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "31cc591df371a62e658fd9347369710155bedd915d94b1682909a61ecb73ebcc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "aac140e66c280564b16b98ce2900cbd1d42efc4fa575fe83ffdc5428055921a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2474dc8002e41be5143cfbd2bc5e6b5be44a0ff9934a041a43f31e374d7ee8a1"
+  end
+
   depends_on "make" => :build
   depends_on xcode: ["8.0", :build]
   depends_on :macos
