@@ -29,7 +29,7 @@ class Pijul < Formula
 
     # Ensure that the `libsodium-sys` crate picks up the intended libsodium library
     # https://github.com/sodiumoxide/sodiumoxide/blob/master/README.md#extended-usage
-    export SODIUM_USE_PKG_CONFIG=1
+    ENV["SODIUM_USE_PKG_CONFIG"] = "1"
 
     # Build Pijul
     system "cargo", "build", "--release"
