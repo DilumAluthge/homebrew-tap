@@ -44,10 +44,6 @@ class Platypus < Formula
     # Build Platypus
     system "make", "build_unsigned"
 
-    # Some debugging
-    puts Dir.pwd
-    system "ls", "-la", "products"
-
     # Install the executable
     bin.install "products/platypus_clt" => "platypus"
 
