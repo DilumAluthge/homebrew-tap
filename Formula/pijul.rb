@@ -15,10 +15,11 @@ class Pijul < Formula
 
   bottle do
     root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/pijul-1.0.0-beta.11"
-    sha256 cellar: :any,                 arm64_tahoe:   "9e6d1fc4772ef4ae7cd384c647fb086db91945938f1ec6613f2bf8f56765a394"
-    sha256 cellar: :any,                 arm64_sequoia: "7fc6c03380fb292b544125023a037c393812e0d068d59215bacccca5733a102a"
-    sha256 cellar: :any,                 arm64_sonoma:  "d2d1883e76758ceef62e956b6bd5035a9a29f28937392a26d1c270ee2e93be42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a59368f736c3f22094b9f221d81649dc3f83bdf6730511241c7871dc00cc96"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_tahoe:   "531a36f2ea2442b7d86d32076423838865e006836751c46b99c95551378eca1a"
+    sha256 cellar: :any,                 arm64_sequoia: "eef9799d6364144dbad94c6d22aacc7222c46b49cdb99f983024c25fe4cf8c09"
+    sha256 cellar: :any,                 arm64_sonoma:  "ecdf3c354c5180ed422450a6497236cea06ab0c698a917a8998a27bd9df937f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2025ab64735717352b34621dc51e24c0b4cb29f0800e53abfd2e47f73319a8b6"
   end
 
   depends_on "pkg-config" => :build
