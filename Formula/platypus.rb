@@ -16,15 +16,7 @@ class Platypus < Formula
   # version is automatically extracted from the url
   sha256 "4a12806aef43d13f67a6d55c765da6209b42543b421fadacaf3a2462c3e6221c"
   license "BSD-3-Clause"
-  revision 1
-
-  bottle do
-    root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/platypus-5.5.0_1"
-    rebuild 1
-    sha256 arm64_tahoe:   "4d4b916e16657662838d4e99f157911c1dd24cbd44faa5a6e9e4f016a9316daf"
-    sha256 arm64_sequoia: "87d0c58393d25742fda41e33330508c838aa815193073505bb45641e2ff146fe"
-    sha256 arm64_sonoma:  "6a903c64158ddf3a378af202968d5036c64413d2557ad1267e4e684b8921e5ce"
-  end
+  revision 2
 
   depends_on "base64" => :build
   depends_on "make" => :build
@@ -40,6 +32,11 @@ class Platypus < Formula
     # This ensures the 'platypus' tool can find 'ScriptExec' and 'MainMenu.nib'
     inreplace "Common.h" do |s|
       s.gsub! "/usr/local/share/platypus", pkgshare
+    end
+
+    if Hardware::CPU.intel?
+      # Necessary to make Platypus compile on Intel
+      ENV.delete("HOMEBREW_OPTFLAGS")
     end
 
     # Build Platypus
