@@ -11,16 +11,7 @@ class Pijul < Formula
   version "1.0.0-beta.11"
   sha256 "8a4fc27aa81ee061310d57fce2df9cc45f3149ddb00bdfab2b816beb0359b13d"
   license "GPL-2.0"
-  # revision 1
-
-  bottle do
-    root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/pijul-1.0.0-beta.11"
-    rebuild 1
-    sha256 cellar: :any,                 arm64_tahoe:   "531a36f2ea2442b7d86d32076423838865e006836751c46b99c95551378eca1a"
-    sha256 cellar: :any,                 arm64_sequoia: "eef9799d6364144dbad94c6d22aacc7222c46b49cdb99f983024c25fe4cf8c09"
-    sha256 cellar: :any,                 arm64_sonoma:  "ecdf3c354c5180ed422450a6497236cea06ab0c698a917a8998a27bd9df937f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2025ab64735717352b34621dc51e24c0b4cb29f0800e53abfd2e47f73319a8b6"
-  end
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
@@ -43,6 +34,7 @@ class Pijul < Formula
   test do
     system bin/"pijul", "--no-prompt", "init"
     %w[haunted house].each { |f| touch testpath/f }
+    assert_equal "No tracked files\n", shell_output("#{bin}/pijul ls")
     system bin/"pijul", "--no-prompt", "add", "haunted", "house"
     # pijul identity new --no-link --no-prompt --display-name 'Test User' --email 'noreply@example.com'
     # pijul --no-prompt record --all --message='Initial patch' --author='Test User <noreply@example.com>'
