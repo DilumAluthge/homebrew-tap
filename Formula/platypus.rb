@@ -31,7 +31,7 @@ class Platypus < Formula
   depends_on :macos
 
   def install
-    # Much of this section is based on:
+    # Parts of this section are based on:
     # https://github.com/sveinbjornt/Platypus/blob/85196da49d3efe6e87f04b5963f732bcbb7d6c9b/wip/platypus.rb
     # Credit: Sveinbjorn Thordarson, and other Platypus contributors
 
@@ -78,21 +78,21 @@ class Platypus < Formula
     system bin/"platypus", "--version"
     system bin/"platypus", "--help"
 
-    # # Regression test for https://github.com/DilumAluthge/homebrew-tap/issues/18
-    # File.open("my_platypus_test_script.bash", "w") do |f|
-    #   f.write('#!/usr/bin/env bash\n')
-    #   f.write('\n')
-    #   f.write('echo "Hello, Platypus on macOS!"\n')
-    #   f.write('read -p "Press Enter to exit"\n')
-    # end
-    # puts ENV["HOMEBREW_TEMP"]
-    # system bin/"platypus",
-    #        "-a", "MyPlatypusTestApp",
-    #        "-o", "Text Window",
-    #        "./my_platypus_test_script.bash",
-    #        "./MyPlatypusTestApp.app"
-    # # Some debugging
-    # puts Dir.pwd
-    # system "ls", "-la"
+    # Regression test for https://github.com/DilumAluthge/homebrew-tap/issues/18
+    File.open("my_platypus_test_script.bash", "w") do |f|
+      f.write('#!/usr/bin/env bash\n')
+      f.write('\n')
+      f.write('echo "Hello, Platypus on macOS!"\n')
+      f.write('read -p "Press Enter to exit"\n')
+    end
+    ENV["TMPDIR"] = ENV["HOMEBREW_TEMP"] + "/"
+    refute_path_exists "./MyPlatypusTestApp.app/Contents/Info.plist"
+    system bin/"platypus",
+           "-a", "MyPlatypusTestApp",
+           "-o", "Text Window",
+           "./my_platypus_test_script.bash",
+           "./MyPlatypusTestApp.app"
+    assert_path_exists "./MyPlatypusTestApp.app/Contents/Info.plist"
+    ENV["TMPDIR"] = nil
   end
 end
