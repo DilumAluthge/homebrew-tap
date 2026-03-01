@@ -6,7 +6,7 @@ class ShyamlRs < Formula
   # version is automatically extracted from the url
   sha256 "46dbc216a9b92b5d82412ffa9114109f4500c8c02e4330588800d0edba264686"
   license "MIT"
-  # revision 1
+  revision 1
 
   bottle do
     root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/shyaml-rs-0.3.2"
@@ -18,6 +18,8 @@ class ShyamlRs < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@3"
+
+  conflicts_with "shyaml", because: "both install `shyaml` binaries"
 
   def install
     # Ensure that the `openssl` crate picks up the desired library
