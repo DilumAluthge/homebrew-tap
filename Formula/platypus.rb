@@ -20,9 +20,10 @@ class Platypus < Formula
 
   bottle do
     root_url "https://github.com/DilumAluthge/homebrew-tap/releases/download/platypus-5.5.0_2"
-    sha256 arm64_tahoe:   "5a92bd4aa33f555b4270b38892c6833a073c36eecd7a5ec4c8214b7cef4a1585"
-    sha256 arm64_sequoia: "cc707d155d6daf35656cbd9f1e049efd85dbc2f0f1e6b03dcdb2366974df0a38"
-    sha256 arm64_sonoma:  "2e15b62f92708782019015f9c084254ef6970ede55adfb0c17b5c56ae3b44beb"
+    rebuild 1
+    sha256 arm64_tahoe:   "222cf35f1e573bd6ee0d2780a90bb95441db75dd20977ea654c880e393e868ff"
+    sha256 arm64_sequoia: "a04d0cab1549cc6e3e49cb21112c64d0bdd704ad5719fa383ec4504ada73a640"
+    sha256 arm64_sonoma:  "bd3d3fb5b2a9a3c3c83c51343e335f79231923b6a05084e826f2e08287b3b6d6"
   end
 
   depends_on "base64" => :build
