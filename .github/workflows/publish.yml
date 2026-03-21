@@ -16,11 +16,18 @@ jobs:
       issues: read
       pull-requests: write
     steps:
+      - name: Generate a token for the GitHub App
+        id: generate-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ vars.BREW_COMMIT_APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Set up Homebrew
         # This repo does not make tags or releases
         uses: Homebrew/actions/setup-homebrew@42435f26fd0824180d7a31f0dd75afd37eb2e18f # main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Set up git
         # This repo does not make tags or releases
@@ -28,7 +35,7 @@ jobs:
 
       - name: Pull bottles
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ steps.generate-token.outputs.token }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --tap="$GITHUB_REPOSITORY" "$PULL_REQUEST"
 
